@@ -388,7 +388,7 @@ static int v4lcontrol_get_usb_info(struct v4lcontrol_data *data,
 		fclose(f);
 
 		if (s && sscanf(buf, "%*d:%d%c", &minor_dev, &c) == 2 &&
-		    c == '\n' && minor_dev == minor(st.st_rdev))
+		    c == '\n' && minor_dev == gnu_dev_minor(st.st_rdev))
 			break;
 	}
 	if (i == 256)
